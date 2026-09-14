@@ -27,6 +27,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Normalize CSS before build
+        run: sed -i 's/^+//' src/App.css
       - name: Build Vite app
         run: npm run build
       - name: Configure Pages
